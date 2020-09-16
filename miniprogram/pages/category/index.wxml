@@ -1,0 +1,51 @@
+<view  class="cu-card article margin-top" style="display:">
+
+
+  <view class="cu-item" style="margin: 0 30rpx;background-color:#fff;min-height: 400rpx;">
+
+    <view class="title" style="font-size:38rpx;text-align:center">
+      <view class="text-cut">{{category.name}}</view>
+    </view>
+
+    <view class="flex aligns-center justify-center">
+      <image class="g-img"  
+        style="width: 140rpx;height:140rpx"
+        mode="scaleToFill" src="/images/{{category.icon}}"></image>
+    </view>
+
+    <view class="cu-bar bg-white solid-bottom margin-top">
+      <view class='action'>
+        <text class='cuIcon-titles text-black'></text>分类说明
+      </view>
+    </view>
+    <view class="content margin-top">
+      {{category.description}}
+    </view>
+
+
+    <view class="flex aligns-center justify-center margin-top">
+      <image class="g-img"  
+        mode="widthFix" src="/images/bj-chuyu.png"></image>
+    </view>
+
+
+
+
+    <view class="cu-bar bg-white solid-bottom margin-top">
+      <view class='action'>
+        <text class='cuIcon-titles text-black'></text>投放指南
+      </view>
+    </view>
+
+    <view class="margin-top">
+      
+    <block wx:for="{{category.solutions}}" wx:key="index">
+      <view class="content margin-bottom-sm">
+        <view>{{item}}</view>
+      </view>
+    </block>
+    </view>
+
+
+  </view>
+</view>

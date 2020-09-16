@@ -1,0 +1,9 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "nav-bar": "../../../components/navbar/navbar",
+    "bottom-button": "/components/bottom-button/index",
+    "result-bubble": "/components/result-bubble/index",
+    "add-tips": "/components/add-tips/index"
+  }
+}

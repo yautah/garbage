@@ -1,0 +1,141 @@
+.bubble-wrap {
+  position: relative;
+
+}
+.wait-point {
+  display:inline-block;
+  width:6px;
+  height:6px;
+  border-radius:3px;
+  background-color: #ddd;
+  margin: 0 2px;
+
+}
+.loading {
+  position: relative;
+}
+
+.line-between {
+  height: 1px;
+  width: 100%;
+  background: #F1F1F1;
+  overflow: hidden;
+}
+
+.create-time {
+  font-size:28rpx;
+  color: #B2B2B2;
+  margin:10px 0;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+}
+
+.section-body{
+  word-wrap: break-word;
+  position: relative;
+  width:100%;
+  background: #FFFFFF;
+  box-shadow: 0 2px 16px 2px rgba(0,0,0,0.03);
+  box-sizing: border-box;
+}
+
+.text-detail {
+  font-size: 36rpx;
+  line-height: 1.231;
+  vertical-align: text-bottom;
+  box-sizing: border-box;
+  font-family: "PingFang-SC-Regular","SimSun","Microsoft Yahei";
+  font-variant-ligatures: none;
+}
+
+.text-detail-en_US {
+  line-height: 1.231;
+}
+
+.text-detail-zh_CN {
+  line-height: 1.41;
+}
+
+.translate-message,
+.send-message {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx 12rpx 24rpx  12rpx;
+  position: relative;
+}
+
+.translate-message {
+  display:block;
+  padding: 0rpx;
+  position:relative;
+  box-sizing: border-box;
+}
+
+.send-message  .text-detail {
+  color: #9B9B9B;
+}
+
+.edit-icon {
+  display: flex;
+  align-items: center;
+  right: 8rpx;
+  bottom: 0;
+  padding: 0 8rpx;
+  bottom: 7rpx;
+}
+
+.edit-icon-img {
+  width:40rpx;
+  height:40rpx;
+}
+
+
+
+.edit-icon::before{
+  content:"";
+  position:absolete;
+  top:-10rpx;
+  left:-10rpx;
+  bottom:-10rpx;
+  right:-10rpx;
+}
+
+
+.text-content {
+  box-sizing: border-box;
+}
+
+.result-cell {
+  position: relative;
+  padding: 24rpx 32rpx;
+  display: flex;
+  align-items: center;
+  line-height: 1.4;
+  font-size: 28rpx;
+
+}
+
+.result-cell::after{
+    position: absolute;
+  left: 15px;
+  right: 0;
+  bottom: 0;
+  border-top: 1rpx solid #e5e5e5;
+  background: #e5e5e5;
+  content: ' ';
+
+}
+
+
+.modal-wrap {
+  position: absolute;
+  width: 100%;
+  box-sizing:border-box;
+}
+/* 重置navigator样式 */
+.navigator-hover {
+  background-color: #fff;
+}

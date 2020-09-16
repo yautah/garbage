@@ -1,0 +1,24 @@
+<view class="cu-bar tabbar" style="background-color:#fff">
+  <view class="action" style="color:{{selected==0 ? '#000' : '#A3A4AA'}}" bind:tap="switchTab" data-index="0">
+    <view class="cuIcon-homefill"></view> 分类
+  </view>
+  <view class="action add-action" style="color:#666">
+    <button class="cu-btn cuIcon-voice {{animation1}}" 
+      style="background-color:#306B8C;"></button>
+
+    <button class="cu-btn cuIcon-voice {{animation2}}" 
+      style="background-color:#306B8C;"></button>
+
+    <button class="cu-btn cuIcon-voice {{animation3}}" 
+      style="background-color:#306B8C;"></button>
+
+    <button class="cu-btn cuIcon-voice shadow" 
+      style="color:#fff;background-color:#2D2C2A;"
+      bind:tap="handleTapVoice"></button>
+
+    <!-- 发布 -->
+  </view>
+  <view class="action" style="color:{{selected==1 ? '#000' : '#A3A4AA'}}" bind:tap="switchTab" data-index="1">
+    <view class="cuIcon-similar"></view> 关于
+  </view>
+</view>

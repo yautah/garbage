@@ -1,0 +1,17 @@
+function renderTag(category) {
+  switch(category) {
+    case 1:
+      return 'olive'
+    case 2:
+        return 'red'
+    case 4:
+          return 'blue'
+    case 8:
+            return 'orange'
+  }
+}
+
+module.exports = {
+  renderTag: renderTag  
+}
+

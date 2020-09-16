@@ -1,0 +1,185 @@
+<cu-custom 
+  position="fixed"
+  bg-color="{{fixedNav ? '#fff' : 'transparent'}}"
+  solid-bottom="{{fixedNav}}"
+  isBack="{{false}}">
+  <view wx:if="{{!fixedNav}}" slot="backText" style="display:flex;align-items:bottom">
+    <image style="width:196rpx;height:36rpx" mode="scaleToFill" src="/images/logo.png"></image>
+  </view>
+
+  <view wx:if="{{fixedNav}}" slot="content">
+    <text class="text-bold">垃圾问问</text>
+  </view>
+
+</cu-custom>
+
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg" style="background-color:{{topBg}}">
+    <view style="width:100%;height:300rpx;"> </view>
+    <view style="width: 0;height: 0;border-top: 200rpx solid transparent;border-left: 0rpx solid #f1f1f1;border-right: 750rpx solid #f1f1f1;"> </view>
+  </view>
+
+  <view 
+    style="position:absolute;left:0;right:0;top:{{CustomBar}}px">
+
+    <!-- 搜索框 -->
+    <view  
+      id="search"
+      class="cu-bar search bg-transparent">
+      <navigator url="/pages/trashs/index" hover-class="none" class="search-form round">
+        <text class="cuIcon-search"></text>
+        <view class="flex-sub padding-right" style="height: 64rpx; line-height: 64rpx; font-size: 26rpx;color:#aaa">
+          搜索垃圾
+        </view>
+      </navigator>
+      <view class="action">
+        <picker bindchange="onCityChange" value="{{currentCityIndex}}" range-key="name" range="{{cities}}">
+          <text class="text-white">{{currentCity.name}}</text>
+          <text class="cuIcon-triangledownfill text-white"></text>
+        </picker>
+      </view>
+    </view>
+
+    <!-- 轮播 -->
+    <swiper bindchange="handleSwiperChange" class="screen-swiper square-dot swiper-container" 
+      indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+      <swiper-item class="swiper-item" wx:for="{{homeData.banners}}" wx:key="index">
+        <navigator url="/pages/articles/index?id={{item.article_id}}" hover-class="none">
+          <image class="swiper-img" src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        </navigator>
+      </swiper-item>
+    </swiper>
+
+
+    <view  class="cu-card article padding-bottom" style="display:">
+      <view class="cu-item" style="background-color:#fff;">
+        <view class="cu-bar bg-white">
+          <view class='action'>
+            <text class='cuIcon-titles text-orange '></text>{{currentCity.name}}生活垃圾分类
+          </view>
+        </view>
+
+        <view class="padding-left padding-right">
+          <view class="grid col-4 grid-square gs" style="margin-bottom:0">
+            <block wx:for="{{categories}}" wx:key="key">
+              <navigator url="/pages/category/index?id={{item.value}}" hover-class="none">
+                <image class="g-img"  mode="scaleToFill" src="/images/{{item.icon}}"></image>
+              </navigator>
+            </block>
+          </view>
+        </view>
+
+        <view class="divider margin"> </view>
+
+        <view class="content">
+          生活垃圾分类，是指按照生活垃圾的不同成分、属性、利用价值、对环境的影响及不同处理方式的要求，分成属性不同的若干种类，从而有利于生活垃圾的回收利用与处理。 
+        </view>
+
+
+        <view class="margin-top margin-lr" style="position:relative">
+          <image style="width: 100%" mode="widthFix" src="/images/banner2.png"></image>
+          <view wx:if="{{!tipsExpanded}}"
+            bind:tap="toggleTipsExpanded"
+            class="flex flex-direction justify-center align-center btnCols" style="">
+            <view style="width:100%;height: 100rpx;background: linear-gradient(to top,  rgba(255,255,255,1) 0%,  rgba(255,255,255,0) 100%);">
+            </view>
+            <view 
+              class="bg-white flex align-center justify-center" 
+              style="width:100%;height:80rpx;color:#728AAF">展开<text class="margin-left-xs cuIcon-unfold" /></view>
+          </view>
+        </view>
+      </view>
+
+
+      <!-- <view class="margin-lr bg-white" style="font-size:0"> -->
+        <!-- <image style="width: 100%" mode="widthFix" src="/images/garbage/1.png"></image> -->
+          <!-- </view> -->
+
+
+
+        <block wx:if="{{tipsExpanded}}">
+          <navigator 
+            hover-class="none" 
+            url="/pages/articles/index?id={{'3adec2825f3638e600b42cda6bac3084'}}"
+            class="cu-item margin-lr bg-white">
+            <view class="padding text-xl">
+              <text style="color:#F49837">01</text>
+              <text class="margin-left-xs" style="color:#2E2E2E">什么是垃圾分类？</text>
+            </view>
+            <view class="padding-lr" style="line-height:1.5em">
+              是指按一定规定或标准将垃圾<text class="text-orange">分类储存</text>、<text class="text-orange">分类投放</text>和<text class="text-orange">分类搬运</text>，从而转变成公共资源的一系列活动的总称。分类的目的是提高垃圾的资源价值和经济价值，力争物尽其用。
+            </view>
+            <view class="margin-top-sm flex align-center justify-center" style="color:#728AAF">
+              进一步了解 <text class="margin-right-xs cuIcon-right" />
+            </view>
+          </navigator>
+
+          <navigator 
+            hover-class="none" 
+            url="/pages/articles/index?id={{'b1cb7d3a5f3642510096eb6c201b4170'}}"
+            class="cu-item margin-lr bg-white">
+            <view class="padding text-xl">
+              <text style="color:#F49837">02</text>
+              <text class="margin-left-xs" style="color:#2E2E2E">为什么要进行辣鸡分类？</text>
+            </view>
+            <view class="padding-lr" style="line-height:1.5em">
+              因为中国，是一个<text class="text-orange">垃圾生产大国</text>。垃圾分类的这场“战争”，已经是<text class="text-orange">迫在眉睫</text>！
+            </view>
+            <view class="margin-top-sm flex align-center justify-center" style="color:#728AAF">
+              进一步了解 <text class="margin-right-xs cuIcon-right" />
+            </view>
+          </navigator>
+
+          <navigator 
+            hover-class="none" 
+            url="/pages/articles/index?id={{'9ffb2a485f364659008973907c6dc4d4'}}"
+            class="cu-item margin-lr bg-white">
+            <view class="padding text-xl">
+              <text style="color:#F49837">03</text>
+              <text class="margin-left-xs" style="color:#2E2E2E">为什么垃圾分类全国不是一个标准？</text>
+            </view>
+            <view class="padding-lr" style="line-height:1.5em">
+              根据各个省市地区的差别，分别实行符合各地实际的方式方法，因地制宜、实事求是，我国才能顺利实现垃圾分类的目标。
+            </view>
+            <view class="margin-top-sm flex align-center justify-center" style="color:#728AAF">
+              进一步了解 <text class="margin-right-xs cuIcon-right" />
+            </view>
+          </navigator>
+
+
+          <navigator 
+            hover-class="none" 
+            url="/pages/articles/index?id={{'3adec2825f36481300b51c6e2ce6f66f'}}"
+            class="cu-item margin-lr bg-white">
+            <view class="padding text-xl">
+              <text style="color:#F49837">04</text>
+              <text class="margin-left-xs" style="color:#2E2E2E">垃圾分类，我该怎么做？</text>
+            </view>
+            <view class="padding-lr" style="line-height:1.5em">
+              家中垃圾提前分好类，分门别类进行投放，注意自己的个人卫生。垃圾分类，从你我做起！
+            </view>
+            <view class="margin-top-sm flex align-center justify-center" style="color:#728AAF">
+              进一步了解 <text class="margin-right-xs cuIcon-right" />
+            </view>
+          </navigator>
+
+          <view wx:if="{{tipsExpanded}}"
+            bind:tap="toggleTipsExpanded"
+            style="color:#728AAF"
+            class="flex align-center justify-center padding-lr">收起<text class="margin-left-xs cuIcon-fold" /></view>
+        </block>
+
+
+        <view class="cu-item" style="background-color:#fff;">
+          <view class="cu-bar bg-white">
+            <view class='action'>
+              <text class='cuIcon-titles text-orange '></text>他们也在看
+            </view>
+          </view>
+        </view>
+
+      </view>
+
+      <view class="cu-tabbar-height"></view>
+    </view>
+  </scroll-view>

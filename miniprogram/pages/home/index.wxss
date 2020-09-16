@@ -1,0 +1,54 @@
+
+.UCenter-bg {
+  /* background-image: url(https://image.weilanwl.com/color2.0/index.jpg); */
+  /* height: 450rpx; */
+  /* height: 100vh; */
+  overflow: hidden;
+  position: relative;
+}
+
+.swiper-container {
+  margin: 4rpx 30rpx;
+  min-height: 340rpx;
+  border-radius: 6px;
+}
+
+.swiper-item {
+  border-radius: 6px;
+}
+
+.swiper-img {
+  border-radius: 6px;
+  width: 100%;
+  height: 340rpx !important;
+}
+
+.scrollPage {
+  height: 100vh;
+}
+
+.gs {
+  justify-content: space-between
+}
+
+.g-img {
+  border-radius: 8rpx;
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.divider {
+  padding: 0 30rpx;
+  border-top: 1rpx solid #ccc;
+  height: 0;
+}
+
+.btnCols{
+  width: 100%;
+position:absolute;
+bottom:0;
+left:0;
+fight:0;
+/* height:80rpx; */
+z-index:9
+}

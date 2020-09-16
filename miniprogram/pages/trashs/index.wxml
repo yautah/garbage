@@ -1,0 +1,53 @@
+  <!-- bgImage="https://image.weilanwl.com/color2.0/plugin/sylb2244.jpg"  -->
+<!-- <cu-custom  -->
+  <!-- bg-image="" -->
+  <!-- bg-color="bg-blue" -->
+  <!-- isBack="{{false}}"> -->
+  <!-- <view slot="content">垃圾分类指南</view> -->
+<!-- </cu-custom> -->
+
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <block wx:for="{{categories}}" wx:key="key">
+        <view class="cu-item flex-sub {{index==TabCur?'cur tab-active':''}}" 
+            style="margin: 10rpx 10rpx;height: 60rpx;line-height:60rpx"
+            bindtap="tabSelect" 
+            data-index="{{index}}"
+            data-key="{{item.key}}">
+        {{item.name}}
+      </view>
+    </block>
+  </view>
+</scroll-view>
+
+<view class="cu-bar bg-white search fixed" style="top:0px;">
+<!-- <view class="cu-bar bg-blue search fixed" style="top:{{CustomBar}}px;"> -->
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <navigator url="/pages/search/search" hover-class="none" class="text-grey" style="flex:1">请输入搜索关键词</navigator>
+  </view>
+</view>
+
+<scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}" style="height:calc(100vh - 50px - 90rpx)" scroll-with-animation="true" enable-back-to-top="true">
+  <block wx:for="{{list}}" wx:key="index">
+    <view class="padding indexItem-{{list[index]}}" style="padding: 12rpx 30rpx;font-weight: 500" id="indexes-{{list[index]}}" data-index="{{list[index]}}">{{list[index]}}</view>
+    <view class="cu-list menu">
+      <view class="cu-item" wx:for="{{garbages[item]}}" wx:for-item="garbage" wx:key="index" wx:for-index="sub">
+        <view class="content">
+          <text class="text-darkgrey">{{garbage.name}}</text>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+
+<view class="indexBar" style="height:calc(100vh - {{CustomBar}}px - 50px - 90rpx)">
+  <view class="indexBar-box" bindtouchstart="tStart" bindtouchend="tEnd" catchtouchmove="tMove">
+    <view class="indexBar-item" wx:for="{{list}}" wx:key="index" id="{{index}}" bindtouchstart="getCur" bindtouchend="setCur">{{list[index]}}</view>
+  </view>
+</view>
+
+<!--选择显示-->
+<view hidden="{{hidden}}" class="indexToast">
+  {{listCur}}
+</view>

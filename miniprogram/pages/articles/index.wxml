@@ -1,0 +1,19 @@
+<view wx:if="{{article}}" class="cu-card">
+  <view class="cu-item">
+    <view class="text-bold" style="font-size: 48rpx;color:#333333">{{article.title}}</view>
+    <view class="text-gray margin-top flex align-start justify-between">
+      <view>
+        <text>{{article.author}}</text>
+        <text class="margin-left" style="color:#728AAF">{{article.source}}</text>
+      </view>
+      <view>{{article.viewsCount}} 阅读</view>
+    </view>
+
+    <view class="content margin-top-lg">
+      <parser html="{{article.content}}" 
+        lazy-load
+        tag-style="{{ {color: 'red'} }}"
+        />
+    </view>
+  </view>
+</view>

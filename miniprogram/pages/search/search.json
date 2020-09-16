@@ -1,0 +1,6 @@
+{
+  "disableScroll": true,
+  "usingComponents": {
+    "garbage-tag": "/components/garbage-tag/index"
+  }
+}

@@ -1,0 +1,53 @@
+<wxs src="../../wxs/helper.wxs" module="helper" />
+
+<view class="bubble-wrap">
+
+  <view class="create-time">{{item.create}}</view>
+
+  <view class="section-body" data-index="{{index}}" >
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text wx:if="{{recordStatus>0}}" class="cuIcon-titles text-orange "></text>
+        <text class="text-xl text-bold text-black">{{item.text}}</text>
+      </view>
+      <view class="action" wx:if="{{recordStatus>0}}" bind:tap="deleteItem">
+        <text class="cuIcon-delete text-grey sm"></text>
+      </view>
+    </view>
+
+    <view wx:if="{{recordStatus>0 && item.results}}" class="cu-list menu sm-border {{menuCard?'card-menu margin-top':''}}">
+      <block wx:if="{{item.results.length>0}}">
+        <block wx:for="{{item.results}}" wx:key="index" wx:for-item="garbage">
+          <navigator  
+            hover-class="none"
+            url="/pages/category/index?id={{garbage.category}}"
+            class="cu-item" style="display: {{index>3&&!expanded ? 'none' : ''}}">
+            <view class="content">
+              <text class="text-darkgrey">{{garbage.name}}</text>
+            </view>
+            <view class="action">
+              <garbage-tag garbage="{{garbage}}" />
+            </view>
+          </navigator>
+        </block>
+
+        <view bind:tap="toggleMore" class="cu-item" wx:if="{{item.results.length>4}}">
+          <view class="content flex justify-center">
+            <text class="text-blue">{{expanded ? '收起↑' : '展开更多↓'}}</text>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="cu-item">
+          <view class="content padding-tb">
+            <text class="text-gray">暂时没有“{{item.text}}”的相关垃圾哟，换个关键词试试？^^</text>
+          </view>
+        </view>
+      </block>
+
+
+
+    </view>
+  </view>
+
+</view>

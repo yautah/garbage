@@ -1,0 +1,36 @@
+<!--pages/search/search.wxml-->
+<view class="container">
+  <!-- 搜索 -->
+
+  <view class="search-bar cu-bar bg-white search fixed" style="">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" 
+        bindinput="handleSearchChange"
+        placeholder="输入搜索的关键词" 
+        confirm-type="search"></input>
+    </view>
+    <view class="action" bind:tap="handleSearch">
+      <text class="text-{{searchKey.length==0 ? 'gray' : 'black'}}">搜索</text>
+    </view>
+  </view>
+
+  <scroll-view scroll-y="true" style="top:{{scrollTop}}px;height:{{scrollHeight}}px;position:absolute;bottom:0;width:100%">
+    <view class="cu-list menu sm-border">
+      <block wx:for="{{garbages}}" wx:key="index" wx:for-item="garbage">
+          <navigator 
+            hover-class="none"
+            url="/pages/category/index?id={{garbage.category}}"
+            class="cu-item">
+          <view class="content">
+            <text class="text-darkgrey">{{garbage.name}}</text>
+          </view>
+          <view class="action">
+            <garbage-tag garbage="{{garbage}}" />
+          </view>
+        </navigator>
+      </block>
+    </view>
+  </scroll-view>
+
+</view>

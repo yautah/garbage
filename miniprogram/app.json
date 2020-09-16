@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/index/index",
+    "pages/edit/edit",
+    "pages/trashs/index",
+    "pages/search/search",
+    "pages/about/index",
+    "pages/category/index",
+    "pages/articles/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#f1f1f1",
+    "navigationBarTitleText": "垃圾问问",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "plugins": {
+    "WechatSI": {
+      "version": "0.2.3",
+      "provider": "wx069ba97219f66d99"
+    }
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#979797",
+    "selectedColor": "#f42b2b",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "语音搜",
+        "iconPath": "images/tabs/index.png",
+        "selectedIconPath": "images/tabs/index_focus.png"
+      },
+      {
+        "pagePath": "pages/about/index",
+        "text": "设置",
+        "iconPath": "images/tabs/mine.png",
+        "selectedIconPath": "images/tabs/mine_focus.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "cu-custom": "/libs/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

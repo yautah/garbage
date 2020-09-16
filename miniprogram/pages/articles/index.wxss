@@ -1,0 +1,5 @@
+/* miniprogram/pages/articles/index.wxss */
+
+page {
+background-color: #fff;
+}

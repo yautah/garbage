@@ -1,0 +1,30 @@
+<view class="button-wrap" hidden="{{hidden}}">
+  <view class="img-big-wrap">
+    <view class="button-container">
+      <view class="button-item">
+        <view class="cu-avatar xl round bg-black animation-{{animation}}" 
+          style="width:120rpx;height: 120rpx"
+          catchtouchstart="streamRecord"
+          catchtouchend="endStreamRecord">
+          <text class="cuIcon-voice lg text-white"></text>
+        </view>
+
+        <block wx:if="{{authStatus=='unauthed'}}">
+          <view class="button-label">请授权麦克风以使用语音输入</view>
+        </block>
+        <block wx:elif="{{authStatus=='refused'}}">
+          <view class="button-label" style="position:relative">
+            请<text class="text-blue text-bold"> 打开 </text>麦克风以使用语音输入
+            <button 
+              open-type="openSetting" 
+              bindopensetting="handleSetting"
+              style='border:0; position: absolute; top: 0; left: 0;right:0;bottom:0' plain="true"></button> 
+            </view>
+          </block>
+          <view wx:else class="button-label">长按说话</view>
+
+        </view>
+
+      </view>
+    </view>
+  </view>

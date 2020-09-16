@@ -1,0 +1,53 @@
+<!--index.wxml-->
+
+<!-- <cu-custom  -->
+  <!-- bg-image="" -->
+  <!-- bg-color="bg-blue" -->
+  <!-- isBack="{{true}}"> -->
+  <!-- <view slot="content"> -->
+    <!-- 垃圾分类说 -->
+  <!-- </view> -->
+<!-- </cu-custom> -->
+
+<view class="container">
+  <scroll-view id="scroll-content"
+    scroll-top="{{scroll_top}}"
+    scroll-y="true"
+    class="dialog-part"
+    style="height: {{scrollHeight||0}}px"
+    scroll-into-view="translate-{{toView}}"
+    enable-back-to-top="true"
+    scroll-with-animation="true">
+    <view class="dialog-wrap" id="translate-empty" style="padding-top: 120rpx" wx:if="{{!recording && dialogList.length == 0}}">
+      <!-- <result-bubble item="{{initTranslate}}" record-status="0"></result-bubble> -->
+      <view class="cu-bar">
+        <view class="action">
+          <text class="text-xxl text-bold text-grey">请告诉我，你想搜索什么？</text>
+        </view>
+      </view>
+    </view>
+    <view wx:for="{{dialogList}}" wx:key="id" class="dialog-wrap" data-index="{{index}}" catchitemdelete="deleteItem">
+      <result-bubble item="{{item}}"
+        edit-show="{{true}}"
+        index="{{index}}"
+        current-translate-voice="{{currentTranslateVoice}}"
+        bindtranslate="translateTextAction"
+        bindexpired="expiredAction"></result-bubble>
+    </view>
+    <view class="dialog-wrap" id="translate-recording" wx:if="{{recording}}">
+      <result-bubble item="{{currentTranslate}}" record-status="{{recordStatus}}"></result-bubble>
+    </view>
+    <view id="translate-fake"></view>
+
+  </scroll-view>
+
+  <view class="foot-group" catchlongpress="catchTapEvent">
+    <bottom-button 
+      auth-setting="{{authSetting}}"
+      button-disabled="{{bottomButtonDisabled}}"
+      bindrecordstart="streamRecord"
+      bindrecordend="streamRecordEnd"></bottom-button>
+  </view>
+</view>
+
+<!-- <add-tips modal-top="{{customBarHeight}}" /> -->

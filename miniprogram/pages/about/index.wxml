@@ -1,0 +1,37 @@
+<!-- <cu-custom  -->
+  <!-- bg-image="" -->
+  <!-- bg-color="white" -->
+  <!-- isBack="{{false}}"> -->
+  <!-- <view slot="content">垃圾分类指南</view> -->
+    <!-- </cu-custom> -->
+
+  <view class="container">
+
+    <view class="cu-list menu sm-border margin-top">
+      <view class="cu-item arrow">
+        <picker bindchange="onCityChange" value="{{currentCityIndex}}" range-key="name" range="{{cities}}">
+        <view class="content">
+          <text class="cuIcon-global text-orange"></text>
+          <text class="text-grey">切换城市</text>
+        </view>
+    </picker>
+
+        <picker bindchange="onCityChange" value="{{currentCityIndex}}" range-key="name" range="{{cities}}">
+          <view class="action">
+            <text class="text-grey">{{currentCity.name}}</text>
+          </view>
+        </picker>
+      </view>
+
+      <view class="cu-item" style="position:relative">
+        <view class="content">
+          <text class="cuIcon-edit text-olive"></text>
+          <text class="text-grey">意见反馈</text>
+        </view>
+        <button 
+          open-type="contact" 
+          bindopensetting="handleSetting"
+          style='border:0; position: absolute; top: 0; left: 0;right:0;bottom:0' plain="true"></button> 
+      </view>
+    </view>
+  </view>
