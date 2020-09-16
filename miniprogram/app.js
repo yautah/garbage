@@ -1,9 +1,6 @@
 //app.js
 
 import Store from './stores/index.js'
-import wxp from './utils/wxp'
-
-const utils = require('./utils/util.js')
 
 if (!wxp.wx.cloud) {
   console.error('请使用 2.2.3 或以上的基础库以使用云能力')
@@ -19,7 +16,7 @@ wxp.store = new Store()
 wxp.store.globalStore.init()
 
 App({
-  onLaunch: function() {
+  onLaunch: function () {
     wx.getStorage({
       key: 'history',
       success: res => {
@@ -42,7 +39,7 @@ App({
     })
   },
   // 权限询问
-  getRecordAuth: function() {
+  getRecordAuth: function () {
     wx.getSetting({
       success(res) {
         console.log('succ')
@@ -71,7 +68,7 @@ App({
     })
   },
 
-  onHide: function() {},
+  onHide: function () {},
   globalData: {
     history: [],
   },
