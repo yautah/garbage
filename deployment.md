@@ -5,43 +5,30 @@
 ## 下载代码
 
 ```
-git clone https://github.com/zhiiee/cats.git <your local directory>
+git clone https://github.com/yautah/garbage.git <your local directory>
 ```
 
-## 修改小程序AppID
+## 修改小程序 AppID
 
 打开 `project.config.json` 文件，修改文件中的 `appid` 字段为自己的 `appid`
 
-## 修改云开发环境ID
+## 修改云开发环境 ID
 
 打开 `env-config.json` 文件，修改文件中的 `develop` 开发环境和 `release` 生产环境的 `云开发环境ID` 为自己对应的 `云开发环境ID`
 
-## 启动或编译项目
+## 安装依赖：
 
-安装依赖：
+进入 miniprogram，终端下执行：
+
 ```
 yarn
 # OR
 npm install
 ```
 
-启动开发环境：
-```
-yarn dev:mp-weixin
-# OR
-npm run dev:mp-weixin
-```
-
-编译生产环境：
-```
-yarn build:mp-weixin
-# OR
-npm run build:mp-weixin
-```
-
 ## 加载项目
 
-打开 `微信开发者工具` 选择 `导入项目` ，开发环境启动后的项目文件夹为 `dist/dev/mp-weixin` ，生产环境编译后的项目文件夹为 `dist/build/mp-weixin` ，请按需导入
+打开 `微信开发者工具` 选择 `导入项目` ，选择项目根目录,“工具”菜单中选择“构建 NPM”。
 
 ## 部署云函数
 
@@ -56,6 +43,7 @@ npm run build:mp-weixin
 ## 设置云函数的内存配置
 
 本项目只用一个 `云函数` 完成所有接口，为了发挥 `云函数` 的最大性能，建议将内存设置到最大，设置步骤：
+
 ```
 云开发控制台 -> 云函数 -> 云函数列表 -> 版本管理 -> 配置 -> 内存配置
 ```
@@ -65,6 +53,7 @@ npm run build:mp-weixin
 ## 云开发权限设置
 
 将 `数据库集合` [[官方文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/database/security-rules.html)] 的权限设置全部改为：
+
 ```
 {
   "read": true,
@@ -73,6 +62,7 @@ npm run build:mp-weixin
 ```
 
 将 `存储` [[官方文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/storage/security-rules.html)] 的权限设置全部改为：
+
 ```
 {
   "read": true,
@@ -81,6 +71,7 @@ npm run build:mp-weixin
 ```
 
 将 `云函数` [[官方文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/functions/security-rules.html)] 的权限设置为：
+
 ```
 {
   "*": {
@@ -93,4 +84,4 @@ Tips: 为方便本项目的跨平台性，建议将云开发环境的 `未登录
 
 ## 初始化数据
 
-将 `init` 文件夹内的 `articles.json`[文章]和 `categories.json`[分类] 两个文件导入到对应的 `数据库集合` 集合中即可
+将 项目根目录中，`seeds` 文件夹内的 所有 json 文件导入到对应的 `数据库集合` 集合中即可
