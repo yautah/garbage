@@ -15,5 +15,4 @@
 
 
 ## 开源许可
-
-《垃圾问问》的源代码基于 `GPL-3.0` 协议全网开源，可用于商业用途，如果您使用了《垃圾问问》的源代码，那么您的项目必须遵守 `GPL-3.0` 协议进行全网开源，点击 [LICENSE](https://github.com/yautah/garbage/blob/master/LICENSE) 查看许可协议
+源代码基于 `GPL-3.0` 协议全网开源，可用于商业用途，如果您使用了《垃圾问问》的源代码，那么您的项目必须遵守 `GPL-3.0` 协议进行全网开源，点击 [LICENSE](https://github.com/yautah/garbage/blob/master/LICENSE) 查看许可协议
